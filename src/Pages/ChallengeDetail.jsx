@@ -24,166 +24,176 @@ const ChallengeDetailWrapper = styled.div`
     box-sizing: border-box;
     padding: 1rem;
   }
-
-  @media (min-width: 680px) {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: 80px 380px 1fr;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 80px 380px 1fr;
+  @media (max-width: 680px) {
+    grid-template-rows: 80px 380px 250px 1fr;
+  }
+  align-items: center;
+  overflow: hidden;
+  > div:nth-of-type(1) {
+    @media (max-width: 680px) {
+      grid-column: 1 / span 8;
+    }
+    position: relative;
+    grid-column: 1 / span 6;
+    grid-row: 2 / span 1;
     overflow: hidden;
-    > div:nth-of-type(1) {
-      position: relative;
-      grid-column: 1 / span 6;
-      grid-row: 2 / span 1;
-      overflow: hidden;
 
-      > img {
-        opacity: 0;
+    > img {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  > div:nth-of-type(2) {
+    grid-column: 7 / span 4;
+    grid-row: 2 / span 1;
+    font-size: 1.1rem;
+    @media (max-width: 680px) {
+      grid-row: 3 / span 1;
+      grid-column: 4 / span 7;
+    }
+    color: #000;
+    display: grid;
+    box-sizing: border-box;
+    justify-self: center;
+    position: relative;
+    width: 95%;
+    > h2 {
+      letter-spacing: 0.01rem;
+      color: #27ae60;
+    }
+
+    > div:nth-of-type(1) {
+      > h5 {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+      }
+      > span {
+        color: #fe346e;
+        display: block;
+        margin: 1rem 0;
+      }
+      > section {
+        display: flex;
+
+        height: 20px;
+
+        > img {
+          height: 20px;
+          width: 20px;
+          object-fit: contain;
+          padding: 1px 3px;
+        }
+        > p {
+          margin: 0;
+          font-size: 0.9rem;
+        }
       }
     }
     > div:nth-of-type(2) {
-      grid-column: 7 / span 4;
-      grid-row: 2 / span 1;
-      font-size: 1.1rem;
-      color: #000;
-      display: grid;
-      box-sizing: border-box;
-      justify-self: center;
-      position: relative;
-      width: 95%;
-      > h2 {
-        letter-spacing: 0.01rem;
-        color: #27ae60;
-      }
+      align-self: end;
+      display: flex;
+      justify-content: flex-end;
+      > button {
+        outline: none;
 
-      > div:nth-of-type(1) {
-        > h5 {
-          width: 100%;
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin: 0;
-        }
-        > span {
-          color: #fe346e;
-          display: block;
-          margin: 1rem 0;
-        }
-        > section {
-          display: flex;
-
-          height: 20px;
-
-          > img {
-            height: 20px;
-            width: 20px;
-            object-fit: contain;
-            padding: 1px 3px;
-          }
-          > p {
-            margin: 0;
-            font-size: 0.9rem;
-          }
-        }
-      }
-      > div:nth-of-type(2) {
-        align-self: end;
-        display: flex;
-        justify-content: flex-end;
-        > button {
-          outline: none;
-
-          margin: 0 4px;
-          background: #27ae60;
-          padding: 8px 12px;
-          border: 1px solid #27ae60;
-          border-radius: 4px;
-          font-size: 15px;
-          color: #fff;
-          cursor: pointer;
-          box-shadow: 1px 1px 5px rgba(39, 174, 96, 0.4);
-          :hover {
-            opacity: 0.7;
-          }
+        margin: 0 4px;
+        background: #27ae60;
+        padding: 8px 12px;
+        border: 1px solid #27ae60;
+        border-radius: 4px;
+        font-size: 15px;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 1px 1px 5px rgba(39, 174, 96, 0.4);
+        :hover {
+          opacity: 0.7;
         }
       }
     }
-    > div:nth-of-type(3) {
-      box-sizing: border-box;
-      width: 80%;
-      justify-self: center;
-      margin: 50px 0 0 0;
+  }
+  > div:nth-of-type(3) {
+    box-sizing: border-box;
+    width: 80%;
+    justify-self: center;
+    margin: 50px 0 0 0;
 
-      grid-column: 1 / span 10;
-      grid-row: 3 / span 1;
-      grid-template-rows: 30px 1fr;
-      grid-template-columns: 1fr;
-      > section:nth-of-type(2) {
-        display: grid;
-        grid-auto-flow: dense;
-        grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
-        > div {
-          padding: 1rem;
-          color: #27ae60;
+    grid-column: 1 / span 10;
+    grid-row: 3 / span 1;
+    @media (max-width: 680px) {
+      grid-row: 4 / span 1;
+    }
+    grid-template-rows: 30px 1fr;
+    grid-template-columns: 1fr;
+    > section:nth-of-type(2) {
+      display: grid;
+      grid-auto-flow: dense;
+      grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+      > div {
+        padding: 1rem;
+        color: #27ae60;
 
-          ul {
-            list-style: none;
-            color: #000;
-            > li {
-              opacity: 0;
-              padding: 8px 0;
-              font-weight: 400;
-            }
-          }
-          > p {
-            color: #000;
-            padding: 40px;
+        ul {
+          list-style: none;
+          color: #000;
+          > li {
+            opacity: 0;
+            padding: 8px 0;
+            font-weight: 400;
           }
         }
-        > div:nth-of-type(2) {
-          height: ${({ expand }) => (expand ? "auto" : "200px")};
-          overflow: ${({ expand }) => (expand ? "" : "hidden")};
-          transition: 1s;
-          > p {
-            line-height: 1.6rem;
+        > p {
+          color: #000;
+          padding: 40px;
+        }
+      }
+      > div:nth-of-type(2) {
+        height: ${({ expand }) => (expand ? "auto" : "200px")};
+        overflow: ${({ expand }) => (expand ? "" : "hidden")};
+        transition: 1s;
+        > p {
+          line-height: 1.6rem;
+        }
+      }
+    }
+
+    /*tab section*/
+    > section:nth-of-type(1) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 4fr 6fr;
+      grid-template-rows: 1fr;
+      > ul:nth-of-type(1) {
+        grid-column: 1 / span 1;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        list-style: none;
+        > li {
+          opacity: 0;
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          border-width: 4px;
+          cursor: pointer;
+          :hover {
+            opacity: 0.4;
           }
         }
       }
 
-      /*tab section*/
-      > section:nth-of-type(1) {
-        width: 100%;
-        display: grid;
-        grid-template-columns: auto 4fr 6fr;
-        grid-template-rows: 1fr;
-        > ul:nth-of-type(1) {
-          grid-column: 1 / span 1;
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          display: flex;
-          list-style: none;
-          > li {
-            opacity: 0;
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-width: 4px;
-            cursor: pointer;
-            :hover {
-              opacity: 0.4;
-            }
-          }
-        }
-
-        /*current tab*/
-        > span {
-          grid-column: 3 / span 1;
-          transition: 1s;
-          opacity: 0;
-        }
+      /*current tab*/
+      > span {
+        grid-column: 3 / span 1;
+        transition: 1s;
+        opacity: 0;
       }
     }
   }
@@ -249,14 +259,14 @@ const ChallengeDetail = () => {
     const et = new TimelineMax();
 
     et.set(imgRef.current, {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    });
-    et.from(imgRef.current, 1, {
       x: "-20%",
       opacity: -1,
       scale: 1.4,
+    });
+    et.to(imgRef.current, 1, {
+      x: 0,
+      opacity: 1,
+      scale: 1,
     });
 
     TweenMax.from(titleRef.current, 1.3, {
