@@ -1,8 +1,12 @@
 {
+  "env": {
+    "REACT_APP_NEWS_KEY": "@nk_secret",
+    "REACT_APP_PIC_KEY": "@pk_secret"
+  },
   "build": {
     "env": {
       "REACT_APP_NEWS_KEY": "@nk_secret",
-      "REACT_APP_PIC_KEY": "pk_secret"
+      "REACT_APP_PIC_KEY": "@pk_secret"
     }
   }
 }
