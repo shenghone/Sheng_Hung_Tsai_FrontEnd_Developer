@@ -318,7 +318,7 @@ const ChallengeDetail = () => {
       expand={expand}
     >
       <div>
-        <img ref={imgRef} src={test} alt="" />}
+        <img ref={imgRef} src={test} alt="" />
       </div>
       <div>
         <h2 ref={titleRef}>
