@@ -21,6 +21,7 @@ function App({ match }) {
       setDisplayMenu(false);
     }
   };
+  console.log(data);
   return (
     <AppWrapper onWheel={() => handleScroll()} className="App">
       {data && data.news && Object.values(data).length > 0 && (
