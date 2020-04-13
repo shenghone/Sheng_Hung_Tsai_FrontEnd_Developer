@@ -2,7 +2,7 @@ import React, { useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import DataContext from "../Context/DataContext";
 import ContentCard from "../Components/ContentCard/ContentCard";
-import { TimelineMax } from "gsap";
+import { TimelineMax, gsap } from "gsap";
 import { v4 as uuid4 } from "uuid";
 
 const JoinedLabWrapper = styled.div`
@@ -200,27 +200,22 @@ const JoinedLab = () => {
     const et = new TimelineMax();
     if (!open) {
       setOpen(!open);
+      
       et.staggerFromTo(
         selectionRef.current.children,
-        0.5,
+        0.3,
         {
           opacity: 0,
+          scaleX: 0.8,
           scaleY: 1.1,
-
-          cycle: {
-            y: function (index) {
-              if (index === 0 || index === 1) {
-                return;
-              }
-              return (index - 1) * 44;
-            },
-          },
+          y: (i) => (i !== 0 ? (i - 1) * 44 : ""),
         },
         {
           opacity: 1,
           scaleY: 1,
+          scaleX: 1,
         },
-        0.2
+        0.1
       );
     } else {
       setOpen(!open);

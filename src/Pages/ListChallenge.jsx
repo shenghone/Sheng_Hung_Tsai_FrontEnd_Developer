@@ -194,7 +194,7 @@ const ListChallengeWrapper = styled.div`
 
 const ListChallenge = () => {
   const { data } = useContext(DataContext);
-  const [tab, setTab] = useState("submitted");
+  const [tab, setTab] = useState("browse");
   const selectionRef = useRef();
   const [open, setOpen] = useState(false);
   const [category, setCategory] = useState("Select category");
@@ -216,25 +216,19 @@ const ListChallenge = () => {
       setOpen(!open);
       et.staggerFromTo(
         selectionRef.current.children,
-        0.5,
+        0.3,
         {
           opacity: 0,
           scaleY: 1.1,
-
-          cycle: {
-            y: function (index) {
-              if (index === 0 || index === 1) {
-                return;
-              }
-              return (index - 1) * 44;
-            },
-          },
+          scaleX: 0.8,
+          y: (i) => (i !== 0 ? (i - 1) * 44 : ""),
         },
         {
           opacity: 1,
           scaleY: 1,
+          scaleX: 1,
         },
-        0.2
+        0.1
       );
     } else {
       setOpen(!open);
