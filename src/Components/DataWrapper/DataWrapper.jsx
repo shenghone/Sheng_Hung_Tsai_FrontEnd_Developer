@@ -20,7 +20,7 @@ const DataWrapper = ({ children }) => {
       });
     };
 
-    //getData();
+    getData();
   }, [setData, setDataMap]);
   useEffect(() => {
     if (data && data.news && data.news.length > 0) {
